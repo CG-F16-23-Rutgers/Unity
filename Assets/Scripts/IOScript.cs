@@ -3,9 +3,11 @@ using System.Collections;
 
 public class IOScript : MonoBehaviour {
 
-    public float camSpeed = 1;
+    public float camSpeed = 100;
     public float lookSpeed = 3; //controls up/down
     public float rotateSpeed = 100; //controls left/right
+
+    private Rigidbody rb;
 
 	// Controls camera
     // Controls:
@@ -16,13 +18,18 @@ public class IOScript : MonoBehaviour {
      *      Q: Look Up
      *      E: Look Down
      * */
-	void Update () {
 
-        // Allow camera to move forward and backwards
-	    if (Input.GetAxis("Vertical") != 0)
-        {
-            transform.Translate(Vector3.forward * camSpeed * Input.GetAxis("Vertical"));
-        }
+    void Start ()
+    {
+        rb = GetComponent<Rigidbody>();
+        rb.freezeRotation = true;
+    }
+	void FixedUpdate () {
+
+        // Moves camera forward and backwards in direction camera is facing
+        float moveVertical = Input.GetAxis("Vertical");
+        Vector3 movement = new Vector3(0, 0, moveVertical);
+        rb.AddRelativeForce(movement * camSpeed);
 
         // Rotate camera up and down
         if (Input.GetKey(KeyCode.E) && (transform.rotation.x < 90))
