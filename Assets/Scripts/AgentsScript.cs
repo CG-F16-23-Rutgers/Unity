@@ -20,11 +20,11 @@ public class AgentsScript : MonoBehaviour {
 	void Start () {
 		agent = GetComponent<NavMeshAgent> ();
 
-		//Creates 8 capsule players
+		//Creates 5 capsule players
 
-		gos = new GameObject[8];
+		gos = new GameObject[5];
 
-		if (GlobalCounter < 7) {
+		if (GlobalCounter < 4) {
 			GameObject clone = (GameObject)Instantiate (prefab, new Vector3 (30, 1, (30 - GlobalCounter * 2.0f)), Quaternion.identity);
 			GlobalCounter++;
 			gos[GlobalCounter] = clone;
