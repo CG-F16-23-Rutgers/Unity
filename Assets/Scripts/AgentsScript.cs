@@ -21,11 +21,10 @@ public class AgentsScript : MonoBehaviour {
 		agent = GetComponent<NavMeshAgent> ();
 
 		//Creates 8 capsule players
-		print ("Going in the for loop: ");
 
 		gos = new GameObject[8];
 
-		if (GlobalCounter < 8) {
+		if (GlobalCounter < 7) {
 			GameObject clone = (GameObject)Instantiate (prefab, new Vector3 (30, 1, (30 - GlobalCounter * 2.0f)), Quaternion.identity);
 			GlobalCounter++;
 			gos[GlobalCounter] = clone;
@@ -33,8 +32,6 @@ public class AgentsScript : MonoBehaviour {
 		}
 
 		print ("Starting Agent. Current position: " + transform.position);
-		//goal.position = transform.position;
-		//agent.destination = goal.position;
 	}
 
 	
@@ -65,17 +62,4 @@ public class AgentsScript : MonoBehaviour {
 
 		}
 	}
-	/*
-	void SetTargetPosition() {
-		Plane plane = new Plane (Vector3.up, transform.position);
-		Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
-		float point = 0f;
-
-		if (plane.Raycast(ray, out point))
-			targetPosition = ray.GetPoint(point);
-		print (targetPosition);
-
-	}
-	*/
-
 }
