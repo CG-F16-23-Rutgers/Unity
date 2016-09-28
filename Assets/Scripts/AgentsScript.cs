@@ -6,8 +6,11 @@ public class AgentsScript : MonoBehaviour {
 	public GameObject prefab;
 	public GameObject[] gos;
 	public Transform goal;
-	public static int GlobalCounter;
-	//public GameObject player;
+	public static int GlobalCounter = 1;
+    //public GameObject player;
+
+    private bool selected = false;
+    private bool Move = false;
 
 	GameObject cam;
 	private Vector3 targetPosition;
@@ -24,7 +27,7 @@ public class AgentsScript : MonoBehaviour {
 
 		gos = new GameObject[5];
 
-		if (GlobalCounter < 4) {
+		if (GlobalCounter < 5) {
 			GameObject clone = (GameObject)Instantiate (prefab, new Vector3 (30, 1, (30 - GlobalCounter * 2.0f)), Quaternion.identity);
 			GlobalCounter++;
 			gos[GlobalCounter] = clone;
@@ -37,7 +40,15 @@ public class AgentsScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetMouseButtonDown(0)) {
+
+        // Set agent destination for selected agent
+        if (selected && Move)
+        {
+            Move = false;
+            agent.SetDestination(targetPosition);
+        }
+
+/**        if (Input.GetMouseButtonDown(0)) {
 			RaycastHit hitInfo;
 			Ray ray =  Camera.main.ScreenPointToRay(Input.mousePosition);
 			Physics.Raycast (ray, out hitInfo);
@@ -58,8 +69,19 @@ public class AgentsScript : MonoBehaviour {
 				//agent.destination = hitInfo.point;
 				agent.SetDestination(hitInfo.point);
 
-			}
+			} 
 
-		}
+		} */
 	}
+
+    void Select(int x)
+    {
+        selected = true;
+    }
+
+    void Destination(Vector3 dest)
+    {
+        targetPosition = dest;
+        Move = true;
+    }
 }
