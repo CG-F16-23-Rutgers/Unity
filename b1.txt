@@ -5,22 +5,3 @@ Nickolay Cohen - nsc57 - 162009385
 1. Our mechanism to prevent agent bunching is setting the stopping distance in the Nav Mesh Agent. This allows agents to stop moving if the space they are headed to is already occupied rather than dancing around.
 2. We implemented moving obstacles by giving them a NavMeshObstacle component and making the size larger than the sphere so that agents will never touch the actual collider.
 3. When a NavMeshObstacle is not carving a NavMeshAgent will simply try to avoid them if they come near. If a NavMeshObstacle is carving then it will affect the NavMesh. You would check the carve box if you want the object to be something agents path around and would not if you do not want agents to take it into consideration when pathing, but rather just avoid it when near. If we make all obstacles carving then if obstacles are constantly moving, agents will constantly recalculate their path, slowing down the simulation. If all obstacles are not carving, then if an obstacle blocks the agent's path the agent will not try to recalculate and instead will just run into the obstacle.
-
-
-
-WEBSITE UPDATE:
-This is a simple crowd simulator, consisting of several rooms and agents that can be selected and given a destination with the left mouse button.
-
-The environment features a maze, a room with jumping blocks, and room with movable obstacles, and a room with dynamic obstacles.
-
-The free camera controls are as follows:
-W moves forward
-S moves backwards
-A turns left
-D turns right
-Q looks up
-E looks down
-
-Agents can be selected with the left mouse button and given a destination by clicking the ground with the left mouse button again.
-
-The moving blocks can be selected the moved with the arrow keys.

@@ -154,8 +154,25 @@ ModelImporter:
     optimizeGameObjects: 0
     motionNodeName: 
     animationImportErrors: 
-    animationImportWarnings: 
-    animationRetargetingWarnings: 
+    animationImportWarnings: "\nClip 'mixamo.com' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar to
+      improve retargeting quality.\n\t'mixamorig:Spine2' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n"
+    animationRetargetingWarnings: "\nRetargeting quality report for clip 'mixamo.com':\n\tLeftLowerLeg
+      average position error 0.5 mm and maximum position error 7.9 mm at time 0:13
+      (65.0%) Frame 13\n\tRightLowerLeg average position error 0.2 mm and maximum
+      position error 2.2 mm at time 0:17 (85.0%) Frame 17\n\tLeftUpperArm average
+      position error 3.2 mm and maximum position error 6.0 mm at time 0: 4 (20.0%)
+      Frame 4\n\tLeftLowerArm average position error 2.5 mm and maximum position error
+      5.4 mm at time 0: 4 (20.0%) Frame 4\n\tLeftHand average position error 2.1 mm
+      and maximum position error 4.6 mm at time 0: 4 (20.0%) Frame 4\n\tRightUpperArm
+      average position error 3.5 mm and maximum position error 6.3 mm at time 0:15
+      (75.0%) Frame 15\n\tRightLowerArm average position error 2.8 mm and maximum
+      position error 5.7 mm at time 0:14 (70.0%) Frame 14\n\tRightHand average position
+      error 1.2 mm and maximum position error 3.7 mm at time 0:14 (70.0%) Frame 14\n\tHead
+      average position error 3.2 mm and maximum position error 6.8 mm at time 0: 4
+      (20.0%) Frame 4\n\tLeftFoot average orientation error 19.9 deg and maximum orientation
+      error 68.8 deg at time 0:11 (55.0%) Frame 11\n"
     animationDoRetargetingWarnings: 0
     animationCompression: 3
     animationRotationError: 0.5
