@@ -5,6 +5,7 @@ public class AverageJoeScript : MonoBehaviour {
 
     Animator anim;
     int runHash = Animator.StringToHash("Run");
+    int jumpHash = Animator.StringToHash("Jump");
 
 	void Start () {
         anim = GetComponent<Animator>();
@@ -24,6 +25,11 @@ public class AverageJoeScript : MonoBehaviour {
         else
         {
             anim.SetBool(runHash, false);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            anim.SetTrigger(jumpHash);
         }
 	}
 }
